@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MockMind — AI Interview Coach</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<!-- landing -->
+<div id="screen-landing" class="screen active">
+  <div class="hero-glow"></div>
+  <div class="container">
+    <header class="hero-header">
+      <div class="logo">🧠 MockMind</div>
+      <p class="tagline">Paste a job description. Practice the interview. Get hired.</p>
+    </header>
+
+    <div class="card landing-card">
+      <h2>Start Your Mock Interview</h2>
+      <p class="sub">MockMind reads the job description and generates a real, tailored interview — then scores every answer you give.</p>
+
+      <div class="form-group">
+        <label for="job-desc">Paste the job description</label>
+        <textarea id="job-desc" rows="10" placeholder="Paste the full job description here — responsibilities, requirements, tech stack..."></textarea>
+      </div>
+
+      <button class="btn-primary" id="start-btn">
+        <span id="start-text">Start Interview</span>
+        <span id="start-loader" class="hidden">Preparing your interview...</span>
+      </button>
+      <p id="start-error" class="error-msg hidden">Please paste a job description first.</p>
+    </div>
+
+    <div class="features">
+      <div class="feature">
+        <span class="feat-icon">🎯</span>
+        <div>
+          <strong>Tailored questions</strong>
+          <p>Generated specifically for the role you're applying to</p>
+        </div>
+      </div>
+      <div class="feature">
+        <span class="feat-icon">⚡</span>
+        <div>
+          <strong>Instant feedback</strong>
+          <p>AI scores your answer and tells you exactly what to improve</p>
+        </div>
+      </div>
+      <div class="feature">
+        <span class="feat-icon">📊</span>
+        <div>
+          <strong>Full report card</strong>
+          <p>Get an overall score, strengths, weaknesses, and action plan</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- interview -->
+<div id="screen-interview" class="screen">
+  <div class="container">
+    <header class="interview-header">
+      <div class="logo">🧠 MockMind</div>
+      <div class="progress-wrap">
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="progress-fill"></div>
+        </div>
+        <span id="progress-label">Question 1 of 6</span>
+      </div>
+    </header>
+
+    <div class="interview-body">
+      <div class="question-card card">
+        <div class="q-meta">
+          <span class="q-number" id="q-number">Q1</span>
+          <span class="q-type" id="q-type">Behavioral</span>
+        </div>
+        <p class="q-text" id="q-text">Loading question...</p>
+      </div>
+
+      <div class="answer-section">
+        <label for="answer-box">Your answer</label>
+        <textarea id="answer-box" rows="7" placeholder="Type your answer here. Take your time — think before you write."></textarea>
+        <div class="answer-footer">
+          <span class="word-count" id="word-count">0 words</span>
+          <button class="btn-primary" id="submit-answer-btn">Submit Answer →</button>
+        </div>
+      </div>
+
+      <div class="feedback-card card hidden" id="feedback-card">
+        <div class="feedback-header">
+          <div class="score-circle" id="score-circle">
+            <span class="score-num" id="score-num">8</span>
+            <span class="score-denom">/10</span>
+          </div>
+          <div>
+            <div class="score-label" id="score-label">Strong</div>
+            <div class="score-sub">Answer score</div>
+          </div>
+        </div>
+
+        <div class="feedback-items">
+          <div class="feedback-item good">
+            <span class="fi-icon">✅</span>
+            <div>
+              <strong>What worked</strong>
+              <p id="fb-good"></p>
+            </div>
+          </div>
+          <div class="feedback-item improve">
+            <span class="fi-icon">📈</span>
+            <div>
+              <strong>What to improve</strong>
+              <p id="fb-improve"></p>
+            </div>
+          </div>
+          <div class="feedback-item tip">
+            <span class="fi-icon">💡</span>
+            <div>
+              <strong>Pro tip</strong>
+              <p id="fb-tip"></p>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn-primary" id="next-btn">Next Question →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- loading -->
+<div id="screen-loading" class="screen">
+  <div class="container center-content">
+    <div class="loading-animation">
+      <div class="logo">🧠 MockMind</div>
+      <div class="spinner"></div>
+      <h2>Generating your report...</h2>
+      <p>Analyzing all 6 answers to build your personalized feedback</p>
+    </div>
+  </div>
+</div>
+
+<!-- report -->
+<div id="screen-report" class="screen">
+  <div class="container">
+    <header class="plan-header">
+      <button class="btn-ghost" id="restart-btn">← New Interview</button>
+      <div class="logo">🧠 MockMind</div>
+    </header>
+
+    <div class="report-hero card" id="report-hero"></div>
+
+    <div class="report-grid">
+      <div class="card report-section" id="report-strengths"></div>
+      <div class="card report-section" id="report-weaknesses"></div>
+    </div>
+
+    <div class="card report-section" id="report-actions"></div>
+    <div class="card report-section" id="report-breakdown"></div>
+    <div class="card report-closing" id="report-closing"></div>
+  </div>
+</div>
+
+<script src="/static/js/app.js"></script>
+</body>
+</html>

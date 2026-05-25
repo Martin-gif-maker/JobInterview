@@ -1,0 +1,20 @@
+# JobInterview -- Python dependencies
+# Install with: pip install -r requirements.txt
+
+# Web framework
+fastapi>=0.111.0
+uvicorn[standard]>=0.29.0
+
+# Templating + forms
+jinja2>=3.1.0
+python-multipart>=0.0.9
+
+# Settings & environment
+pydantic-settings>=2.2.0
+python-dotenv>=1.0.0
+
+# AI (Groq via OpenAI-compatible client)
+openai>=1.30.0
+
+# Production WSGI server
+gunicorn>=22.0.0
